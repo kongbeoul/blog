@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="ko">
+<head>
+    <% include ./header.ejs %>
+</head>
+<body>
+    <div id="wrap">
+        <div class='inner'>
+            <div class="viewWrap">
+                <div class="viewTitle">
+                    <h3><%= title %></h3>
+                </div>
+                <table class="viewDetail">
+                    <colgroup>
+                        <col width="20%"></col>
+                        <col width="30%"></col>
+                        <col width="20%"></col>
+                        <col width="30%"></col>
+                    </colgroup>
+                    <tr class="viewHead">
+                        <th scope="row">작성자</th>
+                        <td><%= author %></td>
+                        <th scope="row">작성일</th>
+                        <td><%= date %></td>
+                    </tr>
+                    <tr class="viewBody">
+                        <td class="viewCon" colspan="4"><%= viewCon %></td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
