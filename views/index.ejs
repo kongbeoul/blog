@@ -27,11 +27,13 @@
                             <td><a href="view?num=<%= i-1 %>"><%= result[i-1]["title"] %></a></td>
                             <td><%= result[i-1]["author"] %></td>
                             <td><%= result[i-1]["date"] %></td>
-                            <td>0</td>
+                            <td><%= result[i-1]["hit"] %></td>
                         </tr>
                     <% } %> 
-                        
                 </table>
+                <div class="btnArea">
+                    <a href="/write" class="writeBtn">글쓰기</a>
+                </div>
             </div>
         </div>
     </body>
