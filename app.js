@@ -6,7 +6,6 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 const fs = require('fs')
 var index = require('./routes/index');
-var users = require('./routes/users');
 const view = require('./routes/view')
 const write = require('./routes/write')
 const submit = require('./routes/submit')
@@ -28,10 +27,10 @@ app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(__dirname+"/public"));
 
 app.use('/', index);
-app.use('/view', view)
+// app.use('/page/view', view)
 app.use('/write', write)
 app.use('/submit', submit)
 app.use('/success', success)

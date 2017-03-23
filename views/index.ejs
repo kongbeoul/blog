@@ -9,9 +9,10 @@
                 <table class="board">
                     <caption></caption>
                     <colgroup>
+                        <col width="15%">
+                        <col width="50%">
                         <col width="10%">
-                        <col width="60%" colspan="6">
-                        <col width="10%">
+                        <col width="15%">
                         <col width="10%">
                     </colgroup>
                     <tr>
@@ -21,16 +22,31 @@
                         <th scope="col">날짜</th>
                         <th scope="col">조회수</th>
                     </tr>
-                    <% for( var i= result.length; i>0; i--){ %>
+                    <% for( var i= start; i> end ; i-- ){ %>
                         <tr>
                             <td class="num"><%= i %></td>
-                            <td><a href="view?num=<%= i-1 %>"><%= result[i-1]["title"] %></a></td>
+                            <td><a href="/page?page=<%= pageNum %>&view=<%= i %>"><%= result[i-1]["title"] %></a></td>
                             <td><%= result[i-1]["author"] %></td>
                             <td><%= result[i-1]["date"] %></td>
                             <td><%= result[i-1]["hit"] %></td>
                         </tr>
                     <% } %> 
                 </table>
+                <div class="pagingWrap">
+                    <div class="pagingInner">
+                        <div class="prevWrap">
+                            <a href="#none" class="prev">이전</a>
+                        </div>
+                        <em class="countWrap">
+                            <% for( var i=1; i<=length; i++){ %>
+                                <em class="count"><a href="/page?page=<%= i-1 %>"><%= i %></a></em>
+                            <% } %>
+                        </em>
+                        <div class="nextWrap">
+                            <a href="#none" class="next">다음</a>
+                        </div>
+                    </div>
+                </div>
                 <div class="btnArea">
                     <a href="/write" class="writeBtn">글쓰기</a>
                 </div>

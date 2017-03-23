@@ -3,9 +3,9 @@ const router = express.Router()
 const fs = require('fs')
 let data =  JSON.parse(fs.readFileSync('view.json', 'utf8'))
 router.get('/', (req, res, next)=>{
+    console.log(req.url)
     let num = req.query.num
     let hit = parseInt(data[num]["hit"])
-
     data[num]["hit"] = hit +1
     fs.writeFile("view.json", JSON.stringify(data), "utf8", (err)=>{
             res.render('view', {
